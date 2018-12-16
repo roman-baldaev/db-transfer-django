@@ -10,9 +10,9 @@ Create three databases - default (for django middleware), sc_db (selection commi
 
 - `python manage.py migrate  --database=default`
 - `python manage.py makemigrations  selection_commitee`
-- `python manage.py migrate selection_commitee —database=sc_db`
+- `python manage.py migrate selection_commitee --database=sc_db`
 - `python manage.py makemigrations  human_resources_dep`
-- `python manage.py migrate human_resources_dep —database=hrd_db`
+- `python manage.py migrate human_resources_dep --database=hrd_db`
 
 # Test
 Scripts: `backend/selection_commitee/management/commands/`
