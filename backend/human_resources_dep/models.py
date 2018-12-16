@@ -38,7 +38,7 @@ class Special(models.Model):
 
 
 class Abiturient(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4(), editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=256)
     country = models.ForeignKey(Country, on_delete=models.CASCADE)
     region = models.ForeignKey(Region, on_delete=models.CASCADE)
@@ -47,7 +47,7 @@ class Abiturient(models.Model):
 
 
 class Application(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4(), editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     abiturient = models.ForeignKey(Abiturient, on_delete=models.CASCADE)
     special = models.ForeignKey(Special, on_delete=models.CASCADE)
     enlisted = models.BooleanField(default=True)

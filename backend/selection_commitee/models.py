@@ -7,8 +7,8 @@ from human_resources_dep.models import (Faculty as HRDFaculty, Country as HRDCou
 
 
 class Faculty(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4(), editable=False)
-    out_id = models.UUIDField(primary_key=False, default=uuid.uuid4(), editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    out_id = models.UUIDField(primary_key=False, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=256)
 
     def __str__(self):
@@ -21,8 +21,8 @@ class Faculty(models.Model):
 
 
 class Country(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4(), editable=False)
-    out_id = models.UUIDField(primary_key=False, default=uuid.uuid4(), editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    out_id = models.UUIDField(primary_key=False, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=256)
 
     def __str__(self):
@@ -35,8 +35,8 @@ class Country(models.Model):
 
 
 class Region(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4(), editable=False)
-    out_id = models.UUIDField(primary_key=False, default=uuid.uuid4(), editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    out_id = models.UUIDField(primary_key=False, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=256)
 
     def __str__(self):
@@ -49,8 +49,8 @@ class Region(models.Model):
 
 
 class Area(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4(), editable=False)
-    out_id = models.UUIDField(primary_key=False, default=uuid.uuid4(), editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    out_id = models.UUIDField(primary_key=False, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=256)
 
     def __str__(self):
@@ -63,8 +63,8 @@ class Area(models.Model):
 
 
 class City(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4(), editable=False)
-    out_id = models.UUIDField(primary_key=False, default=uuid.uuid4(), editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    out_id = models.UUIDField(primary_key=False, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=256)
 
     def __str__(self):
@@ -77,8 +77,8 @@ class City(models.Model):
 
 
 class Special(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4(), editable=False)
-    out_id = models.UUIDField(primary_key=False, default=uuid.uuid4(), editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    out_id = models.UUIDField(primary_key=False, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=256)
     faculty = models.ForeignKey(Faculty, on_delete=models.CASCADE)
 
@@ -92,7 +92,7 @@ class Special(models.Model):
 
 
 class Abiturient(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4(), editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=256)
     country = models.ForeignKey(Country, on_delete=models.CASCADE)
     region = models.ForeignKey(Region, on_delete=models.CASCADE)
@@ -101,7 +101,7 @@ class Abiturient(models.Model):
 
 
 class Application(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4(), editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     abiturient = models.ForeignKey(Abiturient, on_delete=models.CASCADE)
     special = models.ForeignKey(Special, on_delete=models.CASCADE)
     enlisted = models.BooleanField(default=False)
