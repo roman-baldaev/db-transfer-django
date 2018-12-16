@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from selection_commitee.admin import sc_admin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('sc_admin/', sc_admin.urls),
 ]

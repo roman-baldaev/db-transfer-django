@@ -103,7 +103,7 @@ DATABASES = {
     }
 }
 
-
+DATABASE_ROUTERS = ['selection_commitee.db_router.SelectionCommiteeRouter']
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
