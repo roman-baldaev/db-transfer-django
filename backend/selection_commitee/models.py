@@ -1,7 +1,8 @@
 from django.db import models
 import uuid
 from human_resources_dep.models import (Faculty as HRDFaculty, Country as HRDCountry, Region as HRDRegion,
-                                        Area as HRDArea, City as HRDCity, Special as HRDSpecial)
+                                        Area as HRDArea, City as HRDCity, Special as HRDSpecial,
+                                        Application as HRDApplication, Abiturient as HRDAbiturient)
 # Create your models here.
 
 
@@ -104,3 +105,12 @@ class Application(models.Model):
     abiturient = models.ForeignKey(Abiturient, on_delete=models.CASCADE)
     special = models.ForeignKey(Special, on_delete=models.CASCADE)
     enlisted = models.BooleanField(default=False)
+
+    def transfer_to_hrd(self):
+        abiturient = self.abiturient
+        hrd_abiturient = HRDAbiturient(name=abiturient.name, country_id=abiturient.country.out_id,
+                                       region_id=abiturient.region.out_id, area_id=abiturient.area.out_id,
+                                       city_id=abiturient.city.out_id)
+        hrd_abiturient.save()
+        hrd_application = HRDApplication(abiturient=hrd_abiturient, special_id=self.special.out_id)
+        hrd_application.save()
