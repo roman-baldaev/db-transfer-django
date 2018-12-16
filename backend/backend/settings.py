@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'selection_commitee',
+    'human_resources_dep'
 ]
 
 MIDDLEWARE = [
@@ -76,8 +78,28 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': 'default_db',
+        'ENGINE': 'django.db.backends.postgresql',
+        'USER': 'default_admin',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '8900'
+    },
+    'sc_db': {
+        'NAME': 'sc_db',
+        'ENGINE': 'django.db.backends.postgresql',
+        'USER': 'sc_admin',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '8888'
+    },
+    'hrd_db': {
+        'NAME': 'hrd_db',
+        'ENGINE': 'django.db.backends.postgresql',
+        'USER': 'hrd_admin',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '8889'
     }
 }
 

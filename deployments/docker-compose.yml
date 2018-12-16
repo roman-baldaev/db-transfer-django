@@ -17,3 +17,11 @@ services:
       - ../data/pgdata/hrd:/var/lib/postgresql/data
     env_file:
       - hrd_db.env
+  default_db:
+    image: postgres:10.6
+    ports:
+      - 8900:5432
+    volumes:
+      - ../data/pgdata/default:/var/lib/postgresql/data
+    env_file:
+      - default_db.env
