@@ -1,0 +1,19 @@
+version: '2.2'
+services:
+
+  sc_db:
+    image: postgres:10.6
+    ports:
+      - 8888:5432
+    volumes:
+      - ../data/pgdata/sc:/var/lib/postgresql/data
+    env_file:
+      - sc_db.env
+  hrd_db:
+    image: postgres:10.6
+    ports:
+      - 8889:5432
+    volumes:
+      - ../data/pgdata/hrd:/var/lib/postgresql/data
+    env_file:
+      - hrd_db.env
