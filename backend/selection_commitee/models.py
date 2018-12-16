@@ -99,12 +99,18 @@ class Abiturient(models.Model):
     area = models.ForeignKey(Area, on_delete=models.CASCADE)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return "{} ({}, {})".format(self.name, self.country.name, self.city.name)
+
 
 class Application(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     abiturient = models.ForeignKey(Abiturient, on_delete=models.CASCADE)
     special = models.ForeignKey(Special, on_delete=models.CASCADE)
     enlisted = models.BooleanField(default=False)
+
+    def __str__(self):
+        return "{} - {} ({}), {}".format(self.abiturient.name, self.special.name, self.special.faculty.name, self.enlisted)
 
     def transfer_to_hrd(self):
         abiturient = self.abiturient
